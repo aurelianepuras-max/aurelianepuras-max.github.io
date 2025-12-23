@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.svelte';
+---
+
+<Layout title="Origini - Aurelian Epuraș">
+	<PageTransition client:load>
+	<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-br from-ivory to-crem dark:from-dark-primary dark:to-[#0C0A09]"></div>
+
+		<div class="container mx-auto px-4 py-20 relative z-10">
+			<div class="max-w-4xl mx-auto text-center">
+				<p class="text-sm uppercase tracking-[0.3em] text-bronze-gold mb-4 font-light">Bine ați venit</p>
+				<h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">
+					Aurelian Epuraș
+				</h1>
+				<p class="text-xl md:text-2xl text-text-secondary-light dark:text-text-secondary-dark mb-4 italic font-light">
+					pianist și compozitor
+				</p>
+				<div class="w-24 h-0.5 bg-bronze-gold mx-auto mb-8"></div>
+				<p class="text-lg md:text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed max-w-3xl mx-auto mb-12">
+					Muzica este limbajul sufletului. De peste două decenii, dedic fiecare notă explorării frumuseții sonore și creării de compoziții care să atingă inimile ascultătorilor.
+				</p>
+				<div class="flex flex-wrap justify-center gap-4">
+					<a href="/muzica" class="px-8 py-3 bg-olive hover:bg-olive-deep text-ivory-light rounded-full hover:shadow-lg transition-all duration-300 font-medium">
+						Ascultă muzica mea
+					</a>
+					<a href="/biografie" class="px-8 py-3 border-2 border-olive text-olive dark:text-olive-soft hover:bg-olive hover:text-ivory-light rounded-full transition-all duration-300 font-medium">
+						Despre mine
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
+		<div class="container mx-auto px-4">
+			<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+				<a href="/video" class="group text-center p-8 rounded-2xl bg-ivory-light dark:bg-dark-secondary border border-crem-taupe dark:border-dark-border hover:border-olive dark:hover:border-olive-soft hover:shadow-lg transition-all duration-300">
+					<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-olive rounded-full group-hover:scale-110 transition-transform duration-300">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+						</svg>
+					</div>
+					<h3 class="font-serif text-xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">Concerte</h3>
+					<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Urmărește înregistrările video ale concertelor și recitalurilor mele.</p>
+				</a>
+				<a href="/foto" class="group text-center p-8 rounded-2xl bg-ivory-light dark:bg-dark-secondary border border-crem-taupe dark:border-dark-border hover:border-olive dark:hover:border-olive-soft hover:shadow-lg transition-all duration-300">
+					<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-olive rounded-full group-hover:scale-110 transition-transform duration-300">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+						</svg>
+					</div>
+					<h3 class="font-serif text-xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">Galerie foto</h3>
+					<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Momente surprinse din cariera mea artistică.</p>
+				</a>
+				<a href="/blog" class="group text-center p-8 rounded-2xl bg-ivory-light dark:bg-dark-secondary border border-crem-taupe dark:border-dark-border hover:border-olive dark:hover:border-olive-soft hover:shadow-lg transition-all duration-300">
+					<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-olive rounded-full group-hover:scale-110 transition-transform duration-300">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+						</svg>
+					</div>
+					<h3 class="font-serif text-xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">Blog</h3>
+					<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Gânduri și reflecții despre muzică, artă și viață.</p>
+				</a>
+			</div>
+		</div>
+	</section>
+	</PageTransition>
+</Layout>

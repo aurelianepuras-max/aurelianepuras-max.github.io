@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageTransition from '../../components/PageTransition.svelte';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths({ paginate }) {
+  const blogPosts = await getCollection('blog');
+  const sortedPosts = blogPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+  return paginate(sortedPosts, { pageSize: 9 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="Blog - Aurelian Epuraș">
+	<PageTransition client:load>
+	<section class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
+		<div class="container mx-auto px-4">
+			<div class="max-w-7xl mx-auto">
+				<h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">
+					Blog
+				</h1>
+				<div class="w-24 h-1 bg-text-primary-light dark:bg-text-primary-dark mb-8"></div>
+				<p class="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-12 max-w-3xl">
+					Gânduri, reflecții și povești despre muzică, artă și viață. Împărtășesc aici experiențele mele și învățămintele dobândite de-a lungul carierei.
+				</p>
+
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+					{page.data.map((post) => (
+						<article class="group">
+							<a href={`/blog/${post.slug}`} class="block">
+								{post.data.image && (
+									<div class="relative aspect-video rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-crem dark:bg-dark-secondary mb-4">
+										<img
+											src={post.data.image}
+											alt={post.data.title}
+											class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										/>
+									</div>
+								)}
+								<time class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark">
+									{new Date(post.data.pubDate).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+								</time>
+								<h2 class="font-serif text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mt-2 mb-3 group-hover:text-bronze-gold dark:group-hover:text-olive-light transition-colors">
+									{post.data.title}
+								</h2>
+								<p class="text-text-secondary-light dark:text-text-secondary-dark">
+									{post.data.description}
+								</p>
+							</a>
+						</article>
+					))}
+				</div>
+
+				{(page.url.prev || page.url.next) && (
+					<nav class="flex justify-center items-center gap-4">
+						{page.url.prev ? (
+							<a
+								href={page.url.prev}
+								class="px-6 py-3 bg-olive dark:bg-olive-light text-ivory-light dark:text-dark-primary rounded-2xl hover:bg-olive-deep dark:hover:bg-olive hover:shadow-lg transition-all duration-300 font-medium"
+							>
+								← Anterioare
+							</a>
+						) : (
+							<span class="px-6 py-3 bg-crem dark:bg-dark-secondary text-text-tertiary-light dark:text-text-tertiary-dark rounded-2xl font-medium cursor-not-allowed">
+								← Anterioare
+							</span>
+						)}
+						<span class="text-text-secondary-light dark:text-text-secondary-dark">
+							Pagina {page.currentPage} din {page.lastPage}
+						</span>
+						{page.url.next ? (
+							<a
+								href={page.url.next}
+								class="px-6 py-3 bg-olive dark:bg-olive-light text-ivory-light dark:text-dark-primary rounded-2xl hover:bg-olive-deep dark:hover:bg-olive hover:shadow-lg transition-all duration-300 font-medium"
+							>
+								Următoare →
+							</a>
+						) : (
+							<span class="px-6 py-3 bg-crem dark:bg-dark-secondary text-text-tertiary-light dark:text-text-tertiary-dark rounded-2xl font-medium cursor-not-allowed">
+								Următoare →
+							</span>
+						)}
+					</nav>
+				)}
+			</div>
+		</div>
+	</section>
+	</PageTransition>
+</Layout>

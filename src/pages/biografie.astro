@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.svelte';
+---
+
+<Layout title="Biografie - Aurelian Epuraș">
+	<PageTransition client:load>
+	<article class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
+		<div class="container mx-auto px-4 md:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 lg:gap-16">
+					<!-- Left Column - Sticky on Desktop -->
+					<div class="biography-left-column">
+						<div class="biography-sticky-container">
+							<h1 class="font-serif text-5xl md:text-6xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">
+								Biografie
+							</h1>
+							<div class="w-24 h-1 bg-text-primary-light dark:bg-text-primary-dark mb-12"></div>
+
+							<div class="biography-image-container">
+								<img
+									src="https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg?auto=compress&cs=tinysrgb&w=380&h=570&fit=crop"
+									alt="Aurelian Epuraș"
+									class="biography-image"
+									width="380"
+									height="570"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text Column -->
+					<div class="prose prose-lg dark:prose-invert max-w-none">
+					<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed italic text-xl mb-8 pl-6 border-l-4 border-amber-600 dark:border-amber-500 py-2">
+						„Muzica este limbajul care transcende cuvintele."
+					</p>
+
+					<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
+						Bine ai venit în universul meu! E locul unde povestea mea prinde sunet. Intră, ascultă, simte. Dacă ai ajuns aici, înseamnă că ai fost curios sau poate ai dat click din greșeală. Ce găsești totuși aici este rezultatul a 37 de ani petrecuți între clape, partituri și momente în care am uitat unde am pus cablul de alimentare.
+					</p>
+
+					<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-12">
+						Pianul face parte din viața mea de când mă știu, iar drumul a trecut prin școala și liceul de muzică, apoi prin conservator, și încă nu s-a oprit. Corsica mi-a fost acasă vreme de 13 ani, timp în care pianul a fost mai mult decât un instrument, a devenit limbajul zilnic dintre mine și elevi.
+					</p>
+
+					<div class="mb-12">
+						<h2 class="font-serif text-3xl font-semibold mb-6 text-text-primary-light dark:text-text-primary-dark">Formarea</h2>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Am studiat primii opt ani la Școala de Muzică din Petroșani, apoi am urmat Liceul de Muzică „Sigismund Toduță" din Deva și Academia Națională de Muzică „Gheorghe Dima" din Cluj-Napoca, unde am avut privilegiul de a învăța de la maeștri care mi-au modelat viziunea artistică. Studiul nu s-a oprit niciodată; am continuat să mă autoperfecționez și să colaborez cu muzicieni care abordau stiluri muzicale diverse.
+						</p>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Fiecare profesor a adus ceva unic în formarea mea: rigoare tehnică, profunzime emoțională, înțelegerea istoriei muzicale. Toate aceste elemente s-au îmbinat într-un stil propriu pe care încerc să-l rafinez în fiecare zi.
+						</p>
+					</div>
+
+					<div class="mb-12">
+						<h2 class="font-serif text-3xl font-semibold mb-6 text-text-primary-light dark:text-text-primary-dark">Cariera</h2>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Primele mele concerte le-am susținut în România, în festivaluri locale și săli de cameră, dar orizontul s-a extins rapid. Am avut onoarea să cânt în cadrul proiectelor „Pianul de sub stele", turneelor „Sinestezii", precum și în colaborări speciale cu artiști precum Cătălin Stepa. Paralel, am început să compun muzică originală, de la piese personale la albume precum „13", înregistrate ulterior și integrate în repertoriul meu.
+						</p>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Paralel cu activitatea de concertist, am descoperit pasiunea pentru compoziție, transformând primele piese timid scrise în repertoriu și înregistrări oficiale. Această activitate s-a concretizat în albumul „13", care reflectă parcursul meu artistic și experiențele trăite în toți acești ani.
+						</p>
+					</div>
+
+					<div class="mb-12">
+						<h2 class="font-serif text-3xl font-semibold mb-6 text-text-primary-light dark:text-text-primary-dark">Filozofia artistică</h2>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Cred că muzica are puterea de a vindeca, de a conecta și de a transforma. Cânt pentru a comunica și pentru a crea un spațiu în care ascultătorul poate să respire, să simtă și să reflecteze.
+						</p>
+					</div>
+
+					<div class="mb-12">
+						<h2 class="font-serif text-3xl font-semibold mb-6 text-text-primary-light dark:text-text-primary-dark">Prezent și viitor</h2>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Astăzi continui să concertez, să compun și să înregistrez, explorând proiecte originale și fiind implicat în inițiative educaționale precum Fabrica de Pian și Laboratorul de Muzică. Colaborez cu artiști din alte domenii, dans, arte vizuale, literatură, precum și cu actorii de la Teatrul Dramatic „Ion D. Sîrbu" din Petroșani, pentru a crea experiențe multisenzoriale unice.
+						</p>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-4">
+							Fiecare concert și fiecare proiect este pentru mine o șansă de a conecta cu oamenii, de a transmite emoție și de a inspira. Prin muzică, încerc să creez spații în care publicul poate să simtă, să respire și să trăiască experiențe autentice.
+						</p>
+						<p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed italic text-xl mt-8 pl-6 border-l-4 border-amber-600 dark:border-amber-500 py-2">
+							„Nu există public vechi sau public nou, există doar oameni care caută frumusețe și sens. Muzica oferă ambele."
+						</p>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+	</PageTransition>
+</Layout>
+
+<style>
+	/* Left Column */
+	.biography-left-column {
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+
+	/* Sticky container for desktop */
+	@media (min-width: 1024px) {
+		.biography-left-column {
+			margin-bottom: 0;
+			padding-top: 7rem;
+		}
+
+		.biography-sticky-container {
+			position: sticky;
+			top: 7rem;
+		}
+	}
+
+	/* Image container */
+	.biography-image-container {
+		width: 100%;
+	}
+
+	/* Image styling with hover effect */
+	.biography-image {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 0.5rem;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+		transition: filter 0.4s ease, transform 0.4s ease;
+	}
+
+	.biography-image:hover {
+		filter: blur(4px);
+		transform: scale(1.02);
+	}
+
+	/* Prose styling */
+	.prose {
+		@apply text-text-secondary-light dark:text-text-secondary-dark;
+	}
+
+	.prose h2 {
+		@apply text-text-primary-light dark:text-text-primary-dark;
+		line-height: 1.2;
+		margin-top: 3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.prose h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.prose p {
+		line-height: 1.9;
+		font-size: 1.125rem;
+		margin-bottom: 1.5rem;
+	}
+
+	/* Enhanced spacing for airy design */
+	.prose > p:first-child {
+		margin-top: 0;
+	}
+
+	.prose div.mb-12 {
+		margin-bottom: 4rem;
+	}
+
+	@media (max-width: 1023px) {
+		.prose div.mb-12 {
+			margin-bottom: 3rem;
+		}
+	}
+</style>

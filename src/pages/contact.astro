@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.svelte';
+import ContactAnimations from '../components/ContactAnimations.svelte';
+import ContactForm from '../components/ContactForm.svelte';
+---
+
+<Layout title="Contact - Aurelian Epuraș">
+	<ContactAnimations client:load />
+	<ContactForm client:load />
+	<PageTransition client:load>
+	<section class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary min-h-screen">
+		<div class="container mx-auto px-4">
+			<div class="max-w-7xl mx-auto">
+				<div class="animate-slide-up">
+					<h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">
+						Contact
+					</h1>
+					<div class="w-24 h-1 bg-text-primary-light dark:bg-text-primary-dark mb-8"></div>
+					<p class="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-12 max-w-3xl">
+						Dacă doriți să luați legătura cu mine pentru colaborări, întrebări sau orice altă solicitare, vă rog să completați formularul de mai jos.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+					<!-- Left Column: Contact Info Cards -->
+					<div class="space-y-8">
+						<!-- Phone Card -->
+						<div class="animate-slide-left bg-crem dark:bg-dark-secondary rounded-3xl p-6 shadow-lg">
+							<div class="flex items-start gap-4">
+								<div class="w-12 h-12 rounded-xl bg-bronze dark:bg-bronze-warm flex items-center justify-center flex-shrink-0">
+									<svg class="w-6 h-6 text-ivory-light dark:text-dark-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">Telefon</h3>
+									<a href="tel:+40736674176" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-bronze dark:hover:text-bronze-warm transition-colors">
+										+40 736 674 176
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Email Card -->
+						<div class="animate-slide-left bg-crem dark:bg-dark-secondary rounded-3xl p-6 shadow-lg">
+							<div class="flex items-start gap-4">
+								<div class="w-12 h-12 rounded-xl bg-olive dark:bg-olive-light flex items-center justify-center flex-shrink-0">
+									<svg class="w-6 h-6 text-ivory-light dark:text-dark-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">Email</h3>
+									<a href="mailto:contact@aurelianepuras.ro" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors">
+										contact@aurelianepuras.ro
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Message Card -->
+						<div class="animate-slide-left bg-crem dark:bg-dark-secondary rounded-3xl p-6 shadow-lg">
+							<div class="flex items-start gap-4">
+								<div class="w-12 h-12 rounded-xl bg-taupe-dark dark:bg-taupe-light flex items-center justify-center flex-shrink-0">
+									<svg class="w-6 h-6 text-ivory-light dark:text-dark-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M18.5 8c-1.4 0-2.6-.8-3.2-2A6.87 6.87 0 0 0 2 9v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8.5C22 9.6 20.4 8 18.5 8z"/>
+										<path stroke-linecap="round" stroke-linejoin="round" d="M2 14h20M6 14v8M10 14v8M14 14v8M18 14v8"/>
+									</svg>
+								</div>
+								<div class="flex-1">
+									<h3 class="font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">Un mesaj, o poveste</h3>
+									<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">
+										Dacă vrei să colaborăm, să organizezi un concert sau să mă inviți să cânt la evenimentul tău privat, chiar și la nunta ta, mă poți contacta aici. Fie că e vorba de un recital intim sau o seară plină de emoție, răspund cu bucurie fiecărui mesaj.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Location Card -->
+						<div class="animate-slide-left bg-crem dark:bg-dark-secondary rounded-3xl p-6 shadow-lg">
+							<div class="flex items-start gap-4">
+								<div class="w-12 h-12 rounded-xl bg-olive-deep dark:bg-olive flex items-center justify-center flex-shrink-0">
+									<svg class="w-6 h-6 text-ivory-light dark:text-dark-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">Locație</h3>
+									<p class="text-text-secondary-light dark:text-text-secondary-dark">
+										Petroșani, România
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right Column: Message Form -->
+					<div class="lg:col-span-2">
+						<div class="animate-slide-right bg-crem dark:bg-dark-secondary rounded-3xl p-8 shadow-lg h-full flex flex-col">
+							<h2 class="font-serif text-2xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">
+								Povestea începe pe aici
+							</h2>
+
+							<form
+								id="contact-form"
+								class="space-y-6 flex-1 flex flex-col"
+								data-netlify="true"
+								netlify-honeypot="bot-field"
+								name="contact"
+							>
+								<input type="hidden" name="form-name" value="contact" />
+
+								<div class="hidden">
+									<label>
+										Nu completați acest câmp dacă sunteți om:
+										<input name="bot-field" />
+									</label>
+								</div>
+
+								<div>
+									<label for="name" class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark mb-2">
+										Nume <span class="text-red-500">*</span>
+									</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										required
+										maxlength="100"
+										placeholder="Introduceți numele dvs."
+										class="w-full px-5 py-3.5 rounded-xl border-0 bg-ivory-light dark:bg-dark-primary text-text-primary-light dark:text-text-primary-dark placeholder:text-text-tertiary-light dark:placeholder:text-text-tertiary-dark focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-olive-light transition-all"
+									/>
+								</div>
+
+								<div>
+									<label for="email" class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark mb-2">
+										Email <span class="text-red-500">*</span>
+									</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										required
+										placeholder="Introduceți adresa de email"
+										class="w-full px-5 py-3.5 rounded-xl border-0 bg-ivory-light dark:bg-dark-primary text-text-primary-light dark:text-text-primary-dark placeholder:text-text-tertiary-light dark:placeholder:text-text-tertiary-dark focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-olive-light transition-all"
+									/>
+								</div>
+
+								<div>
+									<label for="subject" class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark mb-2">
+										Subiect <span class="text-red-500">*</span>
+									</label>
+									<input
+										type="text"
+										id="subject"
+										name="subject"
+										required
+										maxlength="150"
+										placeholder="Care este subiectul mesajului?"
+										class="w-full px-5 py-3.5 rounded-xl border-0 bg-ivory-light dark:bg-dark-primary text-text-primary-light dark:text-text-primary-dark placeholder:text-text-tertiary-light dark:placeholder:text-text-tertiary-dark focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-olive-light transition-all"
+									/>
+								</div>
+
+								<div class="flex-1 flex flex-col min-h-0">
+									<label for="message" class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark mb-2">
+										Mesaj <span class="text-red-500">*</span>
+									</label>
+									<textarea
+										id="message"
+										name="message"
+										required
+										maxlength="2000"
+										placeholder="Scrieți mesajul dvs. aici..."
+										class="w-full px-5 py-3.5 rounded-xl border-0 bg-ivory-light dark:bg-dark-primary text-text-primary-light dark:text-text-primary-dark placeholder:text-text-tertiary-light dark:placeholder:text-text-tertiary-dark focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-olive-light transition-all resize-none flex-1"
+									></textarea>
+								</div>
+
+								<div id="form-message" class="hidden p-4 rounded-xl"></div>
+
+								<button
+									type="submit"
+									id="submit-btn"
+									class="w-1/2 h-12 px-8 bg-olive dark:bg-olive-light text-ivory-light dark:text-dark-primary rounded-xl hover:bg-olive-deep dark:hover:bg-olive hover:shadow-xl transition-all duration-300 font-medium text-base flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+								>
+									<span id="submit-text">Trimite mesajul</span>
+									<svg id="submit-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+									</svg>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</PageTransition>
+</Layout>
+
+<style>
+	/* Elements are visible by default - no hiding */
+	.animate-slide-left,
+	.animate-slide-right,
+	.animate-slide-up {
+		opacity: 1;
+		transform: none;
+	}
+
+	/* Only hide and animate when JS adds the 'will-animate' class */
+	.will-animate.animate-slide-left {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+
+	.will-animate.animate-slide-left.active {
+		opacity: 1;
+		transform: translateX(0);
+		transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+		            transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.will-animate.animate-slide-right {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+
+	.will-animate.animate-slide-right.active {
+		opacity: 1;
+		transform: translateX(0);
+		transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+		            transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.will-animate.animate-slide-up {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	.will-animate.animate-slide-up.active {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+		            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+</style>

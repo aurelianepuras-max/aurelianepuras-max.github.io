@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageTransition from '../../components/PageTransition.svelte';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const allPosts = await getCollection('blog');
+const postsWithMatchingTags = allPosts
+  .filter(p => p.slug !== post.slug && p.data.tags.some(tag => post.data.tags.includes(tag)))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const otherPosts = allPosts
+  .filter(p => p.slug !== post.slug && !postsWithMatchingTags.includes(p))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const relatedPosts = [...postsWithMatchingTags, ...otherPosts].slice(0, 3);
+---
+
+<Layout title={`${post.data.title} - Blog`} description={post.data.description}>
+	<PageTransition client:load>
+	<article class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h1 class="font-serif text-4xl md:text-5xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">
+					{post.data.title}
+				</h1>
+
+				{post.data.image && (
+					<div class="relative aspect-video rounded-2xl overflow-hidden shadow-xl bg-crem dark:bg-dark-secondary mb-8">
+						<img
+							src={post.data.image}
+							alt={post.data.title}
+							class="w-full h-full object-cover"
+						/>
+					</div>
+				)}
+
+				<div class="flex items-center gap-3 mb-4 flex-nowrap">
+					<a
+						href="/blog"
+						class="inline-flex items-center gap-1.5 text-sm px-4 py-1 bg-bronze-gold dark:bg-olive-light text-ivory-light dark:text-dark-primary hover:bg-bronze-dark hover:text-white dark:hover:bg-olive-dark dark:hover:text-ivory-light transition-all duration-300 rounded-full group"
+					>
+						<svg class="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+						</svg>
+						<span>Înapoi la arhivă</span>
+					</a>
+					{post.data.tags.map((tag) => (
+						<span class="text-sm px-4 py-1 bg-crem dark:bg-dark-secondary text-text-secondary-light dark:text-text-secondary-dark rounded-full">
+							{tag}
+						</span>
+					))}
+				</div>
+
+				<time class="text-text-tertiary-light dark:text-text-tertiary-dark">
+					{new Date(post.data.pubDate).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+				</time>
+
+				<div class="prose prose-lg dark:prose-invert max-w-none mt-8 prose-headings:font-serif prose-headings:text-text-primary-light dark:prose-headings:text-text-primary-dark prose-p:text-text-secondary-light dark:prose-p:text-text-secondary-dark prose-p:leading-relaxed prose-a:text-bronze-gold dark:prose-a:text-olive-light prose-a:underline hover:prose-a:no-underline">
+					<Content />
+				</div>
+
+				{post.data.updatedDate && (
+					<p class="mt-8 text-sm text-text-tertiary-light dark:text-text-tertiary-dark italic">
+						Ultima actualizare: {new Date(post.data.updatedDate).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+					</p>
+				)}
+			</div>
+		</div>
+	</article>
+	</PageTransition>
+
+	{relatedPosts.length > 0 && (
+		<section class="py-16 bg-ivory dark:bg-dark-secondary">
+			<div class="container mx-auto px-4">
+				<div class="max-w-6xl mx-auto">
+					<h2 class="font-serif text-3xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">
+						Articole similare
+					</h2>
+
+					<div class="grid md:grid-cols-3 gap-8">
+						{relatedPosts.map((relatedPost) => (
+							<article class="group">
+								<a href={`/blog/${relatedPost.slug}`} class="block">
+									{relatedPost.data.image && (
+										<div class="relative aspect-video rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-crem dark:bg-dark-elevated mb-4">
+											<img
+												src={relatedPost.data.image}
+												alt={relatedPost.data.title}
+												class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+											/>
+										</div>
+									)}
+									<time class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark">
+										{new Date(relatedPost.data.pubDate).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+									</time>
+									<h3 class="font-serif text-xl font-semibold text-text-primary-light dark:text-text-primary-dark mt-2 mb-2 group-hover:text-bronze-gold dark:group-hover:text-olive-light transition-colors">
+										{relatedPost.data.title}
+									</h3>
+									<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">
+										{relatedPost.data.description}
+									</p>
+								</a>
+							</article>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+	)}
+</Layout>

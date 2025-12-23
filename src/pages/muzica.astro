@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AudioPlayer from '../components/AudioPlayer.svelte';
+import PageTransition from '../components/PageTransition.svelte';
+import { getCollection } from 'astro:content';
+
+const musicTracks = await getCollection('music');
+const sortedTracks = musicTracks.sort((a, b) => (b.data.year || 0) - (a.data.year || 0));
+const tracksWithAlbumCover = sortedTracks.map(track => ({
+	...track.data,
+	coverArt: 'https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop'
+}));
+---
+
+<Layout title="Muzica mea - Aurelian Epuraș">
+	<PageTransition client:load>
+	<section class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">
+					Muzica mea
+				</h1>
+				<div class="w-24 h-1 bg-text-primary-light dark:bg-text-primary-dark mb-8"></div>
+				<p class="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-12 max-w-3xl">
+					Explorează colecția mea de compoziții și interpretări. Fiecare piesă reprezintă o poveste, o emoție, un moment din viața și cariera mea artistică.
+				</p>
+
+				<AudioPlayer client:load transition:persist tracks={tracksWithAlbumCover} />
+			</div>
+		</div>
+	</section>
+	</PageTransition>
+</Layout>
