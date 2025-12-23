@@ -2,6 +2,7 @@
 import ThemeToggle from './ThemeToggle.svelte';
 
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 ---
 
 <style>
@@ -35,7 +36,7 @@ const currentPath = Astro.url.pathname;
   <nav class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <div class="flex flex-col">
-        <a href="/" class="text-2xl font-serif font-bold text-text-primary-light dark:text-text-primary-dark">
+        <a href={base} class="text-2xl font-serif font-bold text-text-primary-light dark:text-text-primary-dark">
           Aurelian Epuraș
         </a>
         <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-light">pianist și compozitor</span>
@@ -43,44 +44,44 @@ const currentPath = Astro.url.pathname;
 
       <div class="hidden md:flex items-center gap-8">
         <a
-          href="/"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === '/' ? 'active' : ''}`}
+          href={base}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === base || currentPath === base.slice(0, -1) ? 'active' : ''}`}
         >
           Origini
         </a>
         <a
-          href="/biografie"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === '/biografie' || currentPath === '/biografie/' ? 'active' : ''}`}
+          href={`${base}biografie`}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === `${base}biografie` || currentPath === `${base}biografie/` ? 'active' : ''}`}
         >
           Biografie
         </a>
         <a
-          href="/muzica"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === '/muzica' || currentPath === '/muzica/' ? 'active' : ''}`}
+          href={`${base}muzica`}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === `${base}muzica` || currentPath === `${base}muzica/` ? 'active' : ''}`}
         >
           Muzica mea
         </a>
         <a
-          href="/foto"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === '/foto' || currentPath === '/foto/' ? 'active' : ''}`}
+          href={`${base}foto`}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === `${base}foto` || currentPath === `${base}foto/` ? 'active' : ''}`}
         >
           Foto
         </a>
         <a
-          href="/video"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === '/video' || currentPath === '/video/' ? 'active' : ''}`}
+          href={`${base}video`}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === `${base}video` || currentPath === `${base}video/` ? 'active' : ''}`}
         >
           Video
         </a>
         <a
-          href="/blog"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath.startsWith('/blog') ? 'active' : ''}`}
+          href={`${base}blog`}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath.startsWith(`${base}blog`) ? 'active' : ''}`}
         >
           Blog
         </a>
         <a
-          href="/contact"
-          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === '/contact' || currentPath === '/contact/' ? 'active' : ''}`}
+          href={`${base}contact`}
+          class={`nav-link text-text-secondary-light dark:text-text-secondary-dark hover:text-olive dark:hover:text-olive-light transition-colors ${currentPath === `${base}contact` || currentPath === `${base}contact/` ? 'active' : ''}`}
         >
           Contact
         </a>
@@ -106,13 +107,13 @@ const currentPath = Astro.url.pathname;
 
 <div id="mobile-menu" class="fixed inset-0 bg-ivory-light/95 dark:bg-dark-primary/95 backdrop-blur-md z-40 md:hidden transform translate-x-full transition-transform duration-300 ease-in-out">
   <div class="flex flex-col items-center justify-center h-full px-8 gap-8">
-    <a href="/" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Origini</a>
-    <a href="/biografie" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Biografie</a>
-    <a href="/muzica" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Muzica mea</a>
-    <a href="/foto" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Foto</a>
-    <a href="/video" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Video</a>
-    <a href="/blog" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Blog</a>
-    <a href="/contact" class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Contact</a>
+    <a href={base} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Origini</a>
+    <a href={`${base}biografie`} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Biografie</a>
+    <a href={`${base}muzica`} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Muzica mea</a>
+    <a href={`${base}foto`} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Foto</a>
+    <a href={`${base}video`} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Video</a>
+    <a href={`${base}blog`} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Blog</a>
+    <a href={`${base}contact`} class="text-2xl font-serif text-text-primary-light dark:text-text-primary-dark hover:text-olive dark:hover:text-olive-light transition-colors">Contact</a>
 
     <div class="flex items-center gap-6 pt-8 border-t border-crem-taupe dark:border-dark-border">
       <a
