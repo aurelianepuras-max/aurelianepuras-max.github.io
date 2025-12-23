@@ -1,5 +1,8 @@
 backend:
-  name: test-repo
+  name: github
+  repo: aurelianepuras-max/Origini
+  branch: main
+  base_url: https://github.com
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
