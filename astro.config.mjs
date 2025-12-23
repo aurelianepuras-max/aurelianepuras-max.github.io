@@ -4,6 +4,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://aurelianepuras-max.github.io',
-  base: process.env.NODE_ENV === 'production' ? '/Origini/' : '/',
+  base: '/',
   integrations: [svelte(), tailwind()],
 });
