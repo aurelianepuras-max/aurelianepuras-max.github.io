@@ -30,7 +30,7 @@ const base = import.meta.env.BASE_URL;
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
 					{page.data.map((post) => (
 						<article class="group">
-							<a href={`${base}/blog/${post.slug}`} class="block">
+							<a href={`${base}blog/${post.slug}`} class="block">
 								{post.data.image && (
 									<div class="relative aspect-video rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-crem dark:bg-dark-secondary mb-4">
 										<img
