@@ -40,7 +40,10 @@ Copierea, redistribuirea sau utilizarea comercială a acestui material nu sunt p
 
 © Aurelian Epuraș
 
+---
+
 *** IMPORTANT!!! ***
+
 ###################### Cum se editează conținutul site-ului (varianta sigură, pe termen lung) ######################
 
 Acest website a fost conceput astfel încât informația să rămână accesibilă și editabilă chiar și în lipsa oricărei interfețe de administrare (CMS).
