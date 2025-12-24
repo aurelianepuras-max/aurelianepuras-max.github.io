@@ -1,48 +1,41 @@
-# Astro Starter Kit: Basics
+# Aurelian Epuraș – Official Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+Acest repository conține codul sursă al website-ului oficial al pianistului și compozitorului **Aurelian Epuraș**.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Site-ul funcționează ca platformă de prezentare pentru activitatea artistică, proiecte muzicale, inițiative educaționale, articole, materiale media și informații de contact. A fost conceput ca un spațiu de arhivare și continuitate, gândit să păstreze și să transmită această activitate dincolo de prezent, ca document de referință în timp.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+🌐 Website: https://aurelianepuras.ro - (Hosted via GitHub Pages)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+---
 
-## 🚀 Project Structure
+## Scopul repository-ului
 
-Inside of your Astro project, you'll see the following folders and files:
+- website personal de prezentare artistică
+- arhivă de proiecte muzicale și apariții
+- documentarea și susținerea proiectelor educaționale
+- blog și secțiune media
+- platformă informativă pentru public
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Acest repository **nu este un template** și **nu este destinat reutilizării comerciale**.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## Tehnologii utilizate
 
-All commands are run from the root of the project, from a terminal:
+- Astro
+- Tailwind CSS
+- Decap CMS
+- GitHub Pages
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## Licență și utilizare
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Structura, designul și conținutul acestui website sunt protejate prin drepturi de autor.
+
+Vizualizarea codului este permisă în scop informativ sau educațional.  
+Copierea, redistribuirea sau utilizarea comercială a acestui material nu sunt permise fără acordul explicit al autorului.
+
+---
+
+© Aurelian Epuraș
