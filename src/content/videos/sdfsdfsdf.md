@@ -1,4 +1,6 @@
----
-title: sdfsdfsdf
-youtubeId: https://youtu.be/mlZhNZkH48o?si=NCNCfRPYLF9lK6wE
----
+{
+  "title": "Behind the Scenes - Pregătiri pentru concert",
+  "youtubeId": "LhhbajLkb4U",
+  "description": "O zi din viața unui pianist înainte de concert",
+  "date": "2024-09-08"
+}
