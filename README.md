@@ -1,10 +1,11 @@
 # Aurelian Epuraș – Official Website
 
-Acest repository conține codul sursă al website-ului oficial al pianistului și compozitorului **Aurelian Epuraș**.
+Acest repository conține codul sursă al website-ului oficial al pianistului și compozitorului Aurelian Epuraș.
 
 Site-ul funcționează ca platformă de prezentare pentru activitatea artistică, proiecte muzicale, inițiative educaționale, articole, materiale media și informații de contact. A fost conceput ca un spațiu de arhivare și continuitate, gândit să păstreze și să transmită această activitate dincolo de prezent, ca document de referință în timp.
 
-🌐 Website: https://aurelianepuras-max.github.io - (Hosted via GitHub Pages)
+🌐 Website: https://aurelianepuras-max.github.io  
+(Hosted via GitHub Pages)
 
 ---
 
@@ -13,61 +14,78 @@ Site-ul funcționează ca platformă de prezentare pentru activitatea artistică
 - website personal de prezentare artistică
 - arhivă de proiecte muzicale și apariții
 - documentarea și susținerea proiectelor educaționale
-- blog și secțiune media
+- blog și secțiune media (foto, video, muzică)
 - platformă informativă pentru public
 
-Acest repository **nu este un template** și **nu este destinat reutilizării comerciale**.
+Acest repository nu este un template și nu este destinat reutilizării comerciale.
 
 ---
 
 ## Tehnologii utilizate
 
-- Astro
+- Astro (static site generator)
 - Tailwind CSS
-- Decap CMS
-- GitHub Pages
+- Decap CMS (opțional, local / condiționat)
+- GitHub Pages (hosting static)
+- GitHub Actions (build & deploy)
+- bolt.new (asistență AI în dezvoltarea și structurarea codului)
 
 ---
 
-## Licență și utilizare
+## Licență și utilizare (abordare deschisă și onestă)
 
-Structura, designul și conținutul acestui website sunt protejate prin drepturi de autor.
+Codul acestui website este compus din:
+- cod scris manual
+- cod generat și ajustat cu ajutorul unor unelte open-source
+- integrări existente (Astro, Decap CMS, Tailwind etc.)
 
-Vizualizarea codului este permisă în scop informativ sau educațional.  
-Copierea, redistribuirea sau utilizarea comercială a acestui material nu sunt permise fără acordul explicit al autorului.
+### Licență cod
+Codul este oferit sub licență MIT.
+Poate fi studiat, reutilizat și adaptat liber, cu respectarea licențelor componentelor folosite.
 
----
+### Conținut
+Textele, muzica, imaginile originale și identitatea artistică aparțin lui Aurelian Epuraș.
+Pentru reutilizarea conținutului artistic este necesar acordul autorului.
 
-© Aurelian Epuraș
-
----
-
-*** IMPORTANT!!! ***
-
-###################### Cum se editează conținutul site-ului (varianta sigură, pe termen lung) ######################
-
-Acest website a fost conceput astfel încât informația să rămână accesibilă și editabilă chiar și în lipsa oricărei interfețe de administrare (CMS).
-
-Decizia nu este una întâmplătoare. A apărut în urma unei experiențe reale, întâlnite în timpul dezvoltării site-ului.
+Scopul acestui repository este **transparența**, **continuitatea** și **ajutorul sincer** pentru alți creatori care pot întâmpina aceleași probleme.
 
 ---
 
-## De ce NU ne bazăm exclusiv pe pagina de admin (CMS)
+# IMPORTANT
 
-Inițial, site-ul a fost configurat cu Decap CMS, o interfață vizuală de administrare accesibilă la /admin/, care permite editarea conținutului direct din browser.
+## Cum se editează conținutul site-ului (varianta sigură, pe termen lung)
+
+Acest website a fost conceput astfel încât **informația să rămână accesibilă și editabilă chiar și în lipsa oricărei interfețe de administrare (CMS)**.
+
+Această decizie nu este teoretică.
+A apărut în urma unor probleme reale întâlnite în timpul dezvoltării site-ului.
+
+---
+
+## De ce NU ne bazăm exclusiv pe pagina de admin (Decap CMS)
+
+Inițial, site-ul a fost configurat cu Decap CMS, o interfață vizuală de administrare accesibilă la `/admin/`, care permite editarea conținutului direct din browser.
 
 ### Ce a funcționat:
-- pagina de admin funcționează local (pe calculator)
-- autentificarea cu GitHub funcționează în anumite condiții
-- articolele, fotografiile, video și muzica pot fi adăugate din interfață
+- pagina de admin funcționează local (localhost)
+- autentificarea cu GitHub funcționează local
+- articolele, fotografiile, video și muzica pot fi adăugate ușor
 
-### Problema întâlnită pe live:
-Pe versiunea publică a site-ului (GitHub Pages), autentificarea în admin nu mai funcționează fără un serviciu extern (Netlify sau Cloudflare Worker), deoarece:
+### Problema apărută pe live (GitHub Pages):
+Pe versiunea publică a site-ului, autentificarea în admin **nu funcționează fără un serviciu extern**, deoarece:
+
 - GitHub Pages este un hosting static
-- nu oferă backend pentru autentificare OAuth
-- Decap CMS are nevoie de un intermediar pentru login
+- nu oferă backend
+- nu poate gestiona OAuth
+- Decap CMS are nevoie de un OAuth handler
+- Netlify sau Cloudflare Worker devin intermediari obligatorii
 
-Aceasta nu este o eroare de configurare și nu este o problemă locală, ci o limitare a platformei.
+Aceasta NU este:
+- o eroare de configurare
+- o greșeală de implementare
+- o problemă locală
+
+Este o **limitare structurală a platformei**.
 
 ---
 
@@ -76,38 +94,80 @@ Aceasta nu este o eroare de configurare și nu este o problemă locală, ci o li
 Pentru ca acest site să poată fi:
 - editat de oriunde
 - recuperat oricând
-- menținut chiar dacă unele servicii dispar
+- menținut chiar dacă servicii externe dispar
+- transmis mai departe fără blocaje
 
-am ales ca baza conținutului să fie GitHub-ul în sine, nu CMS-ul.
+**GitHub devine sursa adevărului.**
 
-CMS-ul este un bonus, nu o dependență critică.  
-GitHub este sursa adevărului.
+CMS-ul este un bonus.
+Nu este o dependență critică.
 
 ---
 
-## Cum se editează conținutul DIRECT din GitHub
+# REGULA DE AUR
 
-Aceasta este metoda 100% sigură, care funcționează întotdeauna, din orice browser, fără instalări.
+Dacă CMS-ul funcționează → îl folosim.  
+Dacă CMS-ul dispare → site-ul rămâne editabil 100% din GitHub.  
+
+Conținutul NU trebuie să depindă de un singur furnizor.
+
+---
+
+## Cum se editează conținutul DIRECT din GitHub (metoda eternă)
+
+Aceasta este metoda care funcționează întotdeauna, din orice browser, fără instalări.
+
+---
 
 ### Articole de blog
-- locație: src/content/blog/
-- format: .md (Markdown)
-- fiecare fișier reprezintă un articol
-- după salvare, GitHub declanșează automat rebuild-ul site-ului
+
+- locație: `src/content/blog/`
+- format: `.md` (Markdown)
+- fiecare fișier = un articol
+
+Exemplu:
+
+---
+title: "Titlu articol"
+description: "Descriere scurtă"
+pubDate: "2025-12-24"
+tags: ["muzică", "jurnal"]
+image: "/uploads/imagine.jpg"
+---
+
+Textul articolului începe aici.
+
+După salvare:
+- GitHub declanșează automat rebuild-ul
 - articolul apare pe site în câteva secunde
 
-### Fotografii (Galerie foto)
-- locație conținut: src/content/photos/
-- format: .json
-- fiecare fișier descrie o fotografie
-- imaginea propriu-zisă se află în: public/uploads/
+---
 
-Fotografiile sunt fișiere .json deoarece sunt tratate ca date, nu ca articole.
+### Fotografii (Galerie foto)
+
+- locație conținut: `src/content/photos/`
+- format: `.json`
+- imaginile propriu-zise: `public/uploads/`
+
+Fotografiile sunt fișiere `.json` deoarece sunt tratate ca **date**, nu ca articole.
+
+Exemplu:
+
+{
+  "title": "Pianul de sub stele",
+  "image": "/uploads/pian-sub-stele.jpg",
+  "description": "Concert în aer liber",
+  "date": "2025-12-24",
+  "category": "Concert"
+}
+
+---
 
 ### Video (YouTube)
-- locație: src/content/videos/
-- format: .json
-- se folosește YouTube ID, nu linkul complet
+
+- locație: `src/content/videos/`
+- format: `.json`
+- se folosește **YouTube ID**, nu linkul complet
 
 Exemplu:
 https://www.youtube.com/watch?v=LhhbajLkb4U
@@ -115,12 +175,26 @@ https://www.youtube.com/watch?v=LhhbajLkb4U
 YouTube ID:
 LhhbajLkb4U
 
+---
+
 ### Muzică
-- locație: src/content/music/
-- format: .json
-- câmpul audioUrl poate fi:
-  - fișier audio urcat în public/uploads/
-  - sau link extern (temporar)
+
+- locație: `src/content/music/`
+- format: `.json`
+- fișiere audio recomandate: MP3
+- fișiere WAV sunt posibile, dar mari
+
+Exemplu:
+
+{
+  "title": "Ultimul Vals",
+  "artist": "Aurelian Epuraș",
+  "album": "A13",
+  "audioUrl": "/uploads/ultimul-vals.mp3",
+  "coverArt": "/uploads/ultimul-vals.jpeg",
+  "duration": "5:20",
+  "year": 2023
+}
 
 ---
 
@@ -130,27 +204,16 @@ LhhbajLkb4U
 Dificultate: UȘOR – MEDIU
 
 - funcționează din orice browser
-- nu depinde de niciun serviciu extern
-- nu se poate „strica” site-ul ușor
+- nu depinde de servicii externe
 - ideal pentru continuitate și arhivare
-
-Necesită:
-- atenție la structură
-- copierea corectă a câmpurilor
-
----
+- necesită atenție la structură
 
 ### Editare prin Admin (Decap CMS)
 Dificultate: FOARTE UȘOR (când funcționează)
 
 - interfață vizuală
-- fără editare de fișiere
 - rapid și comod
-
-Depinde de:
-- autentificare OAuth
-- servicii externe
-- infrastructură care poate dispărea
+- depinde de OAuth și servicii externe
 
 ---
 
@@ -159,25 +222,30 @@ Depinde de:
 Pentru că:
 - conținutul este stocat în fișiere simple
 - fișierele sunt versionate
-- pot fi citite și editate peste 10, 20 sau 50 de ani
-- nu depind de un furnizor unic
-- nu există blocaje tehnologice
+- pot fi citite peste 10, 20 sau 50 de ani
+- nu există vendor lock-in
+- orice browser este suficient
 
 Dacă într-o zi:
 - CMS-ul nu mai funcționează
 - un serviciu dispare
 - calculatorul personal nu mai există
 
-site-ul rămâne  
-conținutul rămâne  
-orice browser este suficient
+Site-ul rămâne.
+Conținutul rămâne.
 
 ---
 
-## Notă finală
+## Notă personală (manifest)
 
-Această structură nu a fost aleasă pentru că este cea mai comodă.  
-A fost aleasă pentru că este cea mai sigură.
+Acest site nu a fost construit pentru confort maxim.
+A fost construit pentru adevăr, memorie și continuitate.
 
-CMS-ul poate veni și pleca.  
+Tehnologiile vin și pleacă.
+Platformele se schimbă.
 Conținutul rămâne.
+
+Dacă cineva ajunge aici și evită măcar o frustrare,
+atunci acest repository și-a îndeplinit scopul.
+
+© Aurelian Epuraș
