@@ -4,8 +4,6 @@ backend:
   branch: main
   base_url: https://bitter-wood-dba7.aurelian-epuras.workers.dev
   auth_endpoint: /auth
-  
-
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -31,6 +29,8 @@ collections:
     label: "Foto"
     folder: "src/content/photos"
     create: true
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Titlu", name: "title", widget: "string" }
       - { label: "Imagine", name: "image", widget: "image" }
@@ -39,6 +39,8 @@ collections:
     label: "Video"
     folder: "src/content/videos"
     create: true
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Titlu", name: "title", widget: "string" }
       - { label: "YouTube ID", name: "youtubeId", widget: "string" }
@@ -47,8 +49,8 @@ collections:
     label: "Muzică"
     folder: "src/content/music"
     create: true
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Titlu", name: "title", widget: "string" }
       - { label: "URL Audio", name: "audioUrl", widget: "string" }
-
-
