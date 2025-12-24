@@ -4,7 +4,7 @@ Acest repository conține codul sursă al website-ului oficial al pianistului ș
 
 Site-ul funcționează ca platformă de prezentare pentru activitatea artistică, proiecte muzicale, inițiative educaționale, articole, materiale media și informații de contact. A fost conceput ca un spațiu de arhivare și continuitate, gândit să păstreze și să transmită această activitate dincolo de prezent, ca document de referință în timp.
 
-🌐 Website: https://aurelianepuras.ro - (Hosted via GitHub Pages)
+🌐 Website: https://aurelianepuras-max.github.io - (Hosted via GitHub Pages)
 
 ---
 
