@@ -57,18 +57,17 @@ collections:
       - { label: "Thumbnail", name: "thumbnail", widget: "string", required: false }
 
   # ---------------- MUZICĂ ----------------
-  - name: "music"
+    - name: "music"
     label: "Muzică"
     folder: "src/content/music"
     create: true
-    slug: "{{slug}}"
     extension: "json"
     format: "json"
     fields:
       - { label: "Titlu", name: "title", widget: "string" }
       - { label: "Artist", name: "artist", widget: "string", default: "Aurelian Epuraș" }
       - { label: "Album", name: "album", widget: "string", required: false }
-      - { label: "URL Audio", name: "audioUrl", widget: "string" }
+      - { label: "Audio (MP3)", name: "audioUrl", widget: "file", media_library: { config: { multiple: false } } }
       - { label: "Cover Art", name: "coverArt", widget: "image", required: false }
       - { label: "Durată", name: "duration", widget: "string", required: false }
       - { label: "An", name: "year", widget: "number", required: false }
