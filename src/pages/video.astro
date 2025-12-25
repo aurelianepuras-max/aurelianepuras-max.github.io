@@ -5,49 +5,102 @@ import { getCollection } from 'astro:content';
 
 const videos = await getCollection('videos');
 const sortedVideos = videos.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function extractYouTubeId(input) {
+  if (!input) return null;
+
+  const raw = String(input).trim();
+
+  // dacă deja e ID simplu
+  if (/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
+
+  // încearcă să-l trateze ca URL
+  try {
+    const u = new URL(raw);
+
+    // youtu.be/VIDEOID
+    if (u.hostname.includes('youtu.be')) {
+      const id = u.pathname.replace('/', '').trim();
+      return /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : null;
+    }
+
+    // youtube.com/watch?v=VIDEOID
+    const v = u.searchParams.get('v');
+    if (v && /^[a-zA-Z0-9_-]{11}$/.test(v)) return v;
+
+    // youtube.com/embed/VIDEOID
+    const embedMatch = u.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+    if (embedMatch?.[1]) return embedMatch[1];
+
+    // youtube.com/shorts/VIDEOID
+    const shortsMatch = u.pathname.match(/\/shorts\/([a-zA-Z0-9_-]{11})/);
+    if (shortsMatch?.[1]) return shortsMatch[1];
+
+    return null;
+  } catch {
+    return null;
+  }
+}
 ---
 
 <Layout title="Înregistrări Video - Aurelian Epuraș">
-	<PageTransition client:load>
-	<section class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
-		<div class="container mx-auto px-4">
-			<div class="max-w-7xl mx-auto">
-				<h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">
-					Înregistrări video
-				</h1>
-				<div class="w-24 h-1 bg-text-primary-light dark:bg-text-primary-dark mb-8"></div>
-				<p class="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-12 max-w-3xl">
-					Performanțe live, interviuri și momente speciale surprinse pe video. Fiecare înregistrare este o fereastră către lumea muzicii și artei.
-				</p>
+  <PageTransition client:load>
+    <section class="py-20 bg-gradient-to-br from-ivory to-crem dark:bg-dark-primary">
+      <div class="container mx-auto px-4">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">
+            Înregistrări video
+          </h1>
+          <div class="w-24 h-1 bg-text-primary-light dark:bg-text-primary-dark mb-8"></div>
+          <p class="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-12 max-w-3xl">
+            Performanțe live, interviuri și momente speciale surprinse pe video. Fiecare înregistrare este o fereastră către lumea muzicii și artei.
+          </p>
 
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{sortedVideos.map((video) => (
-						<div class="group">
-							<div class="relative aspect-video rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-crem dark:bg-dark-secondary">
-								<iframe
-									src={`https://www.youtube.com/embed/${video.data.youtubeId}`}
-									title={video.data.title}
-									frameborder="0"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowfullscreen
-									class="absolute inset-0 w-full h-full"
-								></iframe>
-							</div>
-							<div class="mt-4">
-								<h3 class="font-serif text-xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">
-									{video.data.title}
-								</h3>
-								{video.data.description && (
-									<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">
-										{video.data.description}
-									</p>
-								)}
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
-	</section>
-	</PageTransition>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedVideos.map((video) => {
+              const id = extractYouTubeId(video.data.youtubeUrl || video.data.youtubeId);
+              return (
+                <div class="group">
+                  <div class="relative aspect-video rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-crem dark:bg-dark-secondary">
+                    {id ? (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${id}`}
+                        title={video.data.title}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        class="absolute inset-0 w-full h-full"
+                      ></iframe>
+                    ) : (
+                      <div class="absolute inset-0 w-full h-full flex items-center justify-center p-6 text-center">
+                        <div>
+                          <p class="font-serif text-lg font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">
+                            Video invalid
+                          </p>
+                          <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark break-all">
+                            Verifică linkul YouTube pentru: {video.data.title}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="mt-4">
+                    <h3 class="font-serif text-xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-2">
+                      {video.data.title}
+                    </h3>
+                    {video.data.description && (
+                      <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">
+                        {video.data.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  </PageTransition>
 </Layout>
