@@ -68,12 +68,7 @@ collections:
       - { label: "Titlu", name: "title", widget: "string" }
       - { label: "Artist", name: "artist", widget: "string", default: "Aurelian Epuraș" }
       - { label: "Album", name: "album", widget: "string", required: false }
-      - {
-          label: "Audio (MP3)",
-          name: "audioUrl",
-          widget: "file",
-          media_library: { config: { multiple: false } }
-        }
+      - { label: "Audio (MP3)", name: "audioUrl", widget: "file" }
       - { label: "Cover Art", name: "coverArt", widget: "image", required: false }
       - { label: "Durată", name: "duration", widget: "string", required: false }
       - { label: "An", name: "year", widget: "number", required: false }
