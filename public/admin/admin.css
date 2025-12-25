@@ -1,0 +1,464 @@
+/* ========================================
+   DECAP CMS CUSTOM STYLING
+   Modern, Minimalist, Dark-mode Friendly
+   ======================================== */
+
+:root {
+  --primary: #2d3748;
+  --primary-hover: #1a202c;
+  --accent: #4a5568;
+  --accent-light: #718096;
+  --bg-main: #ffffff;
+  --bg-secondary: #f7fafc;
+  --bg-card: #ffffff;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --border: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4a5568;
+    --primary-hover: #718096;
+    --accent: #cbd5e0;
+    --accent-light: #a0aec0;
+    --bg-main: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-card: #2d3748;
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --text-muted: #cbd5e0;
+    --border: #4a5568;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ========================================
+   BRANDED HEADER
+   ======================================== */
+
+.cms-header-brand {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.cms-header-brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.cms-header-brand p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ========================================
+   GLOBAL RESET & BASE
+   ======================================== */
+
+[data-slate-editor],
+.nc-app-container,
+#nc-root {
+  background: var(--bg-main) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Smooth all transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ========================================
+   SIDEBAR NAVIGATION
+   ======================================== */
+
+/* Sidebar container */
+aside[class*="SidebarContainer"],
+nav[class*="Sidebar"],
+div[class*="sidebar"] {
+  background: var(--bg-card) !important;
+  border-right: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: 1rem 0 !important;
+}
+
+/* Sidebar links */
+aside a,
+nav a,
+div[class*="sidebar"] a {
+  color: var(--text-secondary) !important;
+  padding: 0.75rem 1.5rem !important;
+  margin: 0.25rem 0.75rem !important;
+  border-radius: var(--radius) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  display: block !important;
+}
+
+aside a:hover,
+nav a:hover,
+div[class*="sidebar"] a:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+aside a[class*="active"],
+nav a[class*="active"],
+div[class*="sidebar"] a[class*="active"] {
+  background: var(--primary) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* ========================================
+   MAIN EDITOR AREA
+   ======================================== */
+
+main,
+div[class*="App-main"],
+div[class*="editor-container"] {
+  background: var(--bg-main) !important;
+  padding: 2rem !important;
+}
+
+/* Cards and panels */
+div[class*="Card"],
+div[class*="Panel"],
+section[class*="collection"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* ========================================
+   FORM INPUTS
+   ======================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--text-primary) !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.1) !important;
+}
+
+/* Labels */
+label {
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+button,
+.btn,
+[class*="Button"] {
+  background: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+button:hover,
+.btn:hover,
+[class*="Button"]:hover {
+  background: var(--primary-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Secondary buttons */
+button[class*="secondary"],
+.btn-secondary {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+button[class*="secondary"]:hover,
+.btn-secondary:hover {
+  background: var(--border) !important;
+}
+
+/* ========================================
+   RICH TEXT EDITOR (Markdown/Slate)
+   ======================================== */
+
+[data-slate-editor],
+div[class*="EditorControl"],
+div[class*="markdown-editor"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 1.5rem !important;
+  min-height: 300px !important;
+  color: var(--text-primary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Editor toolbar */
+div[class*="toolbar"],
+div[class*="Toolbar"] {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 0.75rem !important;
+  border-radius: var(--radius) var(--radius) 0 0 !important;
+}
+
+div[class*="toolbar"] button,
+div[class*="Toolbar"] button {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  padding: 0.5rem !important;
+  margin: 0 0.25rem !important;
+  border-radius: var(--radius) !important;
+}
+
+div[class*="toolbar"] button:hover,
+div[class*="Toolbar"] button:hover {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ========================================
+   MEDIA LIBRARY
+   ======================================== */
+
+div[class*="MediaLibrary"],
+div[class*="media-library"] {
+  background: var(--bg-main) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 2rem !important;
+}
+
+/* Media cards/thumbnails */
+div[class*="MediaCard"],
+div[class*="media-card"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+div[class*="MediaCard"]:hover,
+div[class*="media-card"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+div[class*="MediaCard"] img,
+div[class*="media-card"] img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* ========================================
+   COLLECTION ENTRY LIST
+   ======================================== */
+
+div[class*="ListCard"],
+div[class*="entry-card"],
+div[class*="CollectionTop"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 1rem 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  cursor: pointer !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+div[class*="ListCard"]:hover,
+div[class*="entry-card"]:hover {
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ========================================
+   MODALS & OVERLAYS
+   ======================================== */
+
+div[class*="Modal"],
+div[class*="modal"],
+div[role="dialog"] {
+  background: var(--bg-card) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border: 1px solid var(--border) !important;
+}
+
+div[class*="ModalBackdrop"],
+div[class*="overlay"] {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: var(--bg-card) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+}
+
+thead {
+  background: var(--bg-secondary) !important;
+}
+
+th,
+td {
+  padding: 1rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+tr:hover {
+  background: var(--bg-secondary) !important;
+}
+
+/* ========================================
+   SCROLLBARS (Webkit only)
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  main,
+  div[class*="App-main"] {
+    padding: 1rem !important;
+  }
+
+  div[class*="Card"],
+  div[class*="Panel"] {
+    padding: 1rem !important;
+  }
+
+  aside,
+  nav,
+  div[class*="sidebar"] {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .cms-header-brand {
+    padding: 0.75rem 1rem;
+  }
+
+  .cms-header-brand h1 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  button,
+  .btn {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+}
+
+/* ========================================
+   UTILITY OVERRIDES
+   ======================================== */
+
+/* Remove harsh default blues */
+[class*="primary"],
+a:not(.btn) {
+  color: var(--primary) !important;
+}
+
+a:not(.btn):hover {
+  color: var(--primary-hover) !important;
+}
+
+/* Improve focus states */
+*:focus-visible {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Loading states */
+[class*="Loading"],
+[class*="spinner"] {
+  border-color: var(--border) !important;
+  border-top-color: var(--primary) !important;
+}
