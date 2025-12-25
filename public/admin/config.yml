@@ -51,7 +51,7 @@ collections:
     format: "json"
     fields:
       - { label: "Titlu", name: "title", widget: "string" }
-      - { label: "Link YouTube", name: "youtubeUrl", widget: "string" }
+      - { label: "YouTube URL", name: "youtubeUrl", widget: "string" }
       - { label: "Descriere", name: "description", widget: "text", required: false }
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Thumbnail", name: "thumbnail", widget: "string", required: false }
